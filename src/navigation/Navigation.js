@@ -1,14 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { SafeAreaView, TouchableWithoutFeedback, Animated, Image, StyleSheet } from "react-native"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import Icon from "react-native-vector-icons/FontAwesome5"
-import { Pokedex, Account, Favorites, PokemonDetailsScreen } from "../screens/index.js"
+import { Pokedex, Account, Favorites } from "../screens/index.js"
+import PokedexNavigation from './PokedexNavigation.js';
 import { useNavigation } from '@react-navigation/core';
-import { createStackNavigator } from '@react-navigation/stack';
-
-const Stack = createStackNavigator();
-
-
 
 const Tab = createBottomTabNavigator();
 
@@ -48,8 +44,9 @@ function renderPokeball() {
 
 const AppNavigator = () => {
     return (
+
         <SafeAreaView style={{ flex: 1 }}>
-            <Tab.Navigator>
+            <Tab.Navigator >
                 <Tab.Screen
                     name="Favorites"
                     component={Favorites}
@@ -62,41 +59,45 @@ const AppNavigator = () => {
                 />
                 <Tab.Screen
                     name="Pokedex"
-                    component={Pokedex}
+                    component={PokedexNavigation}
                     options={{
                         tabBarLabel: '',
-                        tabBarIcon: renderPokeball
+                        tabBarIcon: renderPokeball,
                     }}
                 />
                 <Tab.Screen
-                    name="PokemonDetailsScreen"
-                    component={PokemonDetailsScreen}
-                    >
-
-                </Tab.Screen>
-                </Tab.Navigator>
+                    name="Account"
+                    component={Account}
+                    options={{
+                        tabBarLabel: 'Mi Cuenta',
+                        tabBarIcon: ({ color, size }) => (
+                            <Icon name="user" color={color} size={size} />
+                        )
+                    }}
+                />
+            </Tab.Navigator>
         </SafeAreaView>
 
 
-            );
+    );
 }
 
-            const styles = StyleSheet.create({
-                container: {
-                width: 75,
-            height: 75,
-            borderRadius: 37.5,
-            backgroundColor: '#FFFFFF',
-            shadowColor: '#000000',
-            shadowOpacity: 0.5,
-            shadowRadius: 3,
-            shadowOffset: {width: 0, height: 2 },
-            elevation: 2,
+const styles = StyleSheet.create({
+    container: {
+        width: 75,
+        height: 75,
+        borderRadius: 37.5,
+        backgroundColor: '#FFFFFF',
+        shadowColor: '#000000',
+        shadowOpacity: 0.5,
+        shadowRadius: 3,
+        shadowOffset: { width: 0, height: 2 },
+        elevation: 2,
     },
-            pokeball: {
-                width: 75,
-            height: 75,
-            top: -15,
+    pokeball: {
+        width: 75,
+        height: 75,
+        top: -15,
     },
 });
-            export default AppNavigator;
+export default AppNavigator;

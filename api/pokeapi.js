@@ -6,10 +6,12 @@ const api = axios.create({
     baseURL: BASE_URL,
 });
 
-export const getPokemonList = async (limit, offset) => {
+export const getPokemonsApi = async (endPointUrl) => {
     try {
-        const response = await api.get(`/pokemon?limit=${limit}&offset=${offset}`);
-        return response.data.results;
+        const url = `${BASE_URL}/pokemon?limit=20&offset=0`
+        const response = await api.get(endPointUrl || url);
+        const result = await response.data
+        return result
     } catch (error) {
         console.log(error);
         throw error;
@@ -25,3 +27,23 @@ export const getPokemonImage = async (pokemonUrl) => {
         return null;
     }
 };
+
+export const getPokemonDetailsByUrlApi = async (url) => {
+    try {
+      const response = await axios.get(url);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+  export async function getPokemonDetailsApi(id) {
+    try {
+      const url = `${BASE_URL}/pokemon/${id}`;
+      const response = await axios.get(url);
+      const result = await response.data;
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+  

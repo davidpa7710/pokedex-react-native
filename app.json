@@ -4,10 +4,10 @@
     "slug": "pokedex",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/Logo F! copy.png",
+    "icon": "./assets/pokedex-icon-28.jpg",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/pokeball-bn.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
