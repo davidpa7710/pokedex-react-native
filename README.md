@@ -1,4 +1,4 @@
-# Pokede-React-Native
+# Pokedex-React-Native
 
 ## Nombre: Pokedex React-Native 
 
@@ -17,9 +17,11 @@
 - Ingrese a la carpeta contenedora Pokedex:
     
     /Pokedex
+
 -Utilice el comando para inicializar el proyecto:
 
-    npm run start 
+    npm run start
+
     
 
 
