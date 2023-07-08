@@ -40,7 +40,7 @@ export default function Account() {
                 <Button
                     style={styles.button}
                     title="Submit"
-                    onPress={() => Alert.alert('Simple Button pressed')}
+                    onPress={() => Alert.alert('Registro Aceptado')}
                 />
 
             </ScrollView>
@@ -60,7 +60,9 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: "#4A55A2",
+        top: 45,
+        justifyContent: 'center',
+        backgroundColor: "#fff",
         alignContent: "center",
         alignItems: "center"
     },

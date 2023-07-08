@@ -48,7 +48,7 @@ const AppNavigator = () => {
         <SafeAreaView style={{ flex: 1 }}>
             <Tab.Navigator >
                 <Tab.Screen
-                    name="Favorites"
+                    name="Favoritos"
                     component={Favorites}
                     options={{
                         tabBarLabel: 'Favoritos',
@@ -61,12 +61,12 @@ const AppNavigator = () => {
                     name="Pokedex"
                     component={PokedexNavigation}
                     options={{
-                        tabBarLabel: '',
+                        tabBarLabel: "",
                         tabBarIcon: renderPokeball,
                     }}
                 />
                 <Tab.Screen
-                    name="Account"
+                    name="Mi cuenta"
                     component={Account}
                     options={{
                         tabBarLabel: 'Mi Cuenta',
