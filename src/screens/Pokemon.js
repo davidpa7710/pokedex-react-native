@@ -4,6 +4,7 @@ import { getPokemonDetailsApi } from '../../api/pokeapi';
 import Header from '../components/Pokemon/Header';
 import Type from '../components/Pokemon/Type';
 import Stats from '../components/Pokemon/Stats';
+import Icon from 'react-native-vector-icons/FontAwesome5'
 
 export default function Pokemon({ navigation, route }) {
   const { id } = route.params;

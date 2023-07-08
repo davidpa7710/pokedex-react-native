@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   name: {
     color: "#fff",
     fontWeight: "bold",
-    fontSize: 27,
+    fontSize: 32,
   },
   order: {
     color: "#fff",
