@@ -22,6 +22,21 @@
 
     npm run start
 
+-Una vez iniciado el proyecto escanee el codigo QR en su celular o ejecute el comando para ejecutar en un Emulador local 
+
+    Metro waiting on exp://192.168.1.76:19000
+    › Scan the QR code above with Expo Go (Android) or the Camera app (iOS)
+
+    › Press a │ open Android
+    ›Press i │ open iOS simulator
+    › Press w │ open web
+
+    › Press j │ open debugger
+    › Press r │ reload app
+    › Press m │ toggle menu
+
+    › Press ? │ show all commands
+
     
 
 
