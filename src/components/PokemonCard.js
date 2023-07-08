@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -6,22 +6,37 @@ import {
   Image,
   TouchableWithoutFeedback,
 } from "react-native";
-import {capitalize} from "lodash"
+import { capitalize } from "lodash"
 import getColorByPokemonType from "../utils/getColorByPokemonType";
 import { useNavigation } from "@react-navigation/native";
+import { getPokemonImage } from "../../api/pokeapi";
 
 export default function PokemonCard(props) {
   const { pokemon } = props;
   const navigation = useNavigation()
+  const [pokemonImageUrl, setPokemonImageUrl] = useState(null);
+
 
   const pokemonColor = getColorByPokemonType(pokemon.type)
-  const bgStyles = {backgroundColor: pokemonColor, ...styles.bgStyles}
+  const bgStyles = { backgroundColor: pokemonColor, ...styles.bgStyles }
 
   const goToPokemon = () => {
-    console.log(pokemon);
-    navigation.navigate("Pokemon", {id: pokemon.id})
+    navigation.navigate("Pokemon", { id: pokemon.id })
 
   };
+  const getPokemonImageUrl = async () => {
+    try {
+      const imageUrl = await getPokemonImage(pokemon.name);
+      setPokemonImageUrl(imageUrl);
+    } catch (error) {
+      console.error('Error al obtener la imagen del Pokémon:', error);
+    }
+  };
+
+  useEffect(() => {
+    getPokemonImageUrl();
+  }, []);
+
 
   return (
     <TouchableWithoutFeedback onPress={goToPokemon}>
@@ -32,7 +47,7 @@ export default function PokemonCard(props) {
               #{`${pokemon.order}`.padStart(3, 0)}
             </Text>
             <Text style={styles.name}>{capitalize(pokemon.name)}</Text>
-            <Image source={{ uri: pokemon.image }} style={styles.image} />
+            <Image source={{ uri: pokemonImageUrl }} style={styles.image} />
           </View>
         </View>
       </View>

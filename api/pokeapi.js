@@ -18,15 +18,18 @@ export const getPokemonsApi = async (endPointUrl) => {
     }
 };
 
-export const getPokemonImage = async (pokemonUrl) => {
+export const getPokemonImage = async (pokemonName) => {
     try {
-        const response = await axios.get(pokemonUrl);
-        return response.data.sprites.front_default;
+      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+      const { sprites } = response.data;
+      const imageUrl = sprites.other['official-artwork'].front_default;
+      return imageUrl;
     } catch (error) {
-        console.log(error);
-        return null;
+      console.error('Error al obtener la imagen del Pokémon:', error);
+      return null;
     }
-};
+  };
+  
 
 export const getPokemonDetailsByUrlApi = async (url) => {
     try {

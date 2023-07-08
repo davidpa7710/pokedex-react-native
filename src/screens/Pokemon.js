@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { ScrollView, Text } from 'react-native'
 import { getPokemonDetailsApi } from '../../api/pokeapi';
 import Header from '../components/Pokemon/Header';
+import Type from '../components/Pokemon/Type';
+import Stats from '../components/Pokemon/Stats';
 
 export default function Pokemon({ navigation, route }) {
   const { id } = route.params;
@@ -30,6 +32,8 @@ export default function Pokemon({ navigation, route }) {
         image={pokemon.sprites.other["official-artwork"].front_default}
         type={pokemon.types[0].type.name}
       />
+      <Type types={pokemon.types} />
+      <Stats stats={pokemon.stats}/>
     </ScrollView>
   )
 }
