@@ -1,75 +1,15 @@
 import React from 'react'
-import {
-    Button,
-    StyleSheet,
-    Text,
-    SafeAreaView,
-    TextInput,
-    ScrollView,
-    Alert
-} from 'react-native'
+import { View, Text } from 'react-native'
+import  LoginForm  from '../components/Auth/LoginForm'
+import UserData from '../components/Auth/UserData'
 
 export default function Account() {
+    const auth = null 
     return (
-        <SafeAreaView style={styles.container}>
-            <ScrollView>
-                <Text>Nombre</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Ash"
-                />
-                <Text>Correo</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="ash_ketchum@pokemon.com"
-                    keyboardType="email-address"
-                ></TextInput>
-                <Text>Numero</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="+15554444333"
-                    keyboardType="phone-pad"
-                ></TextInput>
-                <Text>Contraseña</Text>
-                <TextInput
-                    style={styles.input}
-                    secureTextEntry={true}
-                    placeholder="*******"
-                    minLenght="18"
-                ></TextInput>
-                <Button
-                    style={styles.button}
-                    title="Submit"
-                    onPress={() => Alert.alert('Registro Aceptado')}
-                />
-
-            </ScrollView>
-        </SafeAreaView>
+        <View>
+            {auth ? <UserData /> : <LoginForm />}
+        </View>
     )
 }
 
-const styles = StyleSheet.create({
-    input: {
-        borderColor: "gray",
-        width: "95%",
-        borderWidth: 1,
-        borderRadius: 15,
-        padding: 10,
-        margin: 10,
-        backgroundColor: "#fff"
-    },
-    container: {
-        flex: 1,
-        top: 45,
-        justifyContent: 'center',
-        backgroundColor: "#fff",
-        alignContent: "center",
-        alignItems: "center"
-    },
-    button:{
-        backgroundColor:"#7895CB",
-        color: "#000",
-        borderRadius: 15,
-    }
 
-})
